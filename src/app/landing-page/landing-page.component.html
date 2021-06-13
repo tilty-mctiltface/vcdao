@@ -1,0 +1,81 @@
+<div class="header">
+  <p>LOGO</p>
+  <h3>VC DAO</h3>
+  <nav>
+    <ul class="menu-list">
+      <li>Dashboard</li>
+      <li>Developers</li>
+      <li [routerLink]="'app/pools'" class="app-link">WebApp</li>
+    </ul>
+  </nav>
+</div>
+<div class="body">
+  <div class="hero"></div>
+  <div>
+    <div>
+      <h1 class="info-header">DAO INFORMATION</h1>
+    </div>
+    <div class="content-section">
+      <div>
+        <mat-card class="info-card">
+          <div class="infographics">
+            <h1 class="huge-header">TVL</h1>
+            <p class="big-text">$ 180.987.876,23</p>
+            <div class="bar-chart-container">
+              <ngx-charts-bar-horizontal
+                [view]="barView"
+                [scheme]="colorScheme"
+                [results]="barSingle"
+                [gradient]="gradient"
+                [xAxis]="barShowXAxis"
+                [yAxis]="barShowYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="false"
+                [showYAxisLabel]="false">
+              </ngx-charts-bar-horizontal>
+            </div>
+            <div>
+              <h1 class="huge-header">TVL current reward Cycle</h1>
+              <p class="big-text">$ 60.987.876,23</p>
+            </div>
+          </div>
+          <div class="info-text">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget lacus suscipit, ornare eros quis, ultrices neque.
+              In lobortis varius mauris nec feugiat. Integer non lacus lobortis, egestas dui sit amet, tristique dui. Nulla ut felis sed massa pellentesque semper.
+              Cras varius dignissim urna, nec volutpat lectus. Donec enim nisi, iaculis eget tristique ac, ullamcorper eget metus.
+              Cras condimentum pellentesque lectus id tempus. Cras non quam gravida, faucibus enim sed, malesuada dui. Ut at nulla porttitor nisi sagittis vehicula.
+              Donec in cursus sapien, quis dictum orci. Fusce porttitor consequat ultricies. Fusce nec sem ac ligula aliquet ornare eu et mi. Maecenas eget rutrum leo, nec suscipit neque.
+              In hac habitasse platea dictumst.
+            </p>
+          </div>
+        </mat-card>
+      </div>
+      <div>
+        <mat-card class="info-card tokens">
+          <div class="infographics">
+            <h1 class="huge-header">Max Supply</h1>
+            <p class="big-text">100.000 VCS</p>
+            <div style="height: 200px">
+              <ngx-charts-gauge
+                [view]="gaugeView"
+                [scheme]="colorScheme"
+                [results]="gaugeSingle"
+                [legend]="true"
+                [legendPosition]="legendPosition"
+                [legendTitle]="'Tokens'"
+              >
+              </ngx-charts-gauge>
+            </div>
+          </div>
+          <div class="info-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget lacus suscipit, ornare eros quis, ultrices neque.
+            In lobortis varius mauris nec feugiat. Integer non lacus lobortis, egestas dui sit amet, tristique dui. Nulla ut felis sed massa pellentesque semper.
+            Cras varius dignissim urna, nec volutpat lectus. Donec enim nisi, iaculis eget tristique ac, ullamcorper eget metus.
+            Cras condimentum pellentesque lectus id tempus. Cras non quam gravida, faucibus enim sed, malesuada dui. Ut at nulla porttitor nisi sagittis vehicula.
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

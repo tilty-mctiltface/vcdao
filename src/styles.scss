@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fdfdfd;
+}
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0 5px 12px -1px rgba(0, 0, 0, 0.2),
+  0 1px 1px 0 rgba(0,0,0,0.08),
+  0 1px 3px 0 rgba(0,0,0,0.08);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(222, 222, 222);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #144831;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1c6746;
+}

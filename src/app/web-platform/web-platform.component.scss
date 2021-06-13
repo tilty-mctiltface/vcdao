@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f6f6f6;
+  box-shadow:0 2px 8px 1px #dbdbdb;
+  color: #3c3c3c;
+  nav {
+    .menu-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      li {
+        padding: 10px 25px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .app-link {
+        margin-right: 40px;
+        padding: 10px 40px !important;
+        background-color: #1c1f2d;
+        border-radius: 25px;
+      }
+    }
+  }
+  .wallet-connection {
+    border-bottom: 1px solid #144831;
+    padding: 10px 30px;
+    margin-right: 10px;
+    height: min-content;
+  }
+}

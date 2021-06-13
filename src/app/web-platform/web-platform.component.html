@@ -1,0 +1,14 @@
+<div class="header">
+  <p>LOGO</p>
+  <nav>
+    <ul class="menu-list">
+      <li [routerLink]="'pools'" >Pools</li>
+      <li [routerLink]="'rewards'" >Rewards</li>
+      <li [routerLink]="'statistics'" >Statistics</li>
+    </ul>
+  </nav>
+  <div class="wallet-connection">
+    <p style="margin: 0">{{account | slice:0:8}}...</p>
+  </div>
+</div>
+<router-outlet></router-outlet>
