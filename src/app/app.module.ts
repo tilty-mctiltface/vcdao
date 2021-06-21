@@ -14,7 +14,11 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTableModule} from "@angular/material/table";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PoolDialogComponent } from './shared/dialogs/pool/pool-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { AdvancedComponent } from './statistics/advanced/advanced.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     PoolsComponent,
     StatisticsComponent,
     RewardsComponent,
-    WebPlatformComponent
+    WebPlatformComponent,
+    PoolDialogComponent,
+    AdvancedComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +40,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatButtonModule,
     MatProgressBarModule,
     MatGridListModule,
+    MatTableModule,
+    MatDialogModule,
     NgxChartsModule
   ],
   providers: [],

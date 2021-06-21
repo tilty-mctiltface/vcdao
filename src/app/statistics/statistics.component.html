@@ -1,1 +1,73 @@
-<p>statistics works!</p>
+<div class="invest-value-container">
+  <div class="section-head">
+    <p class="huge-header">Your Investment</p>
+    <p class="big-text">$ 51.867,23</p>
+  </div>
+  <mat-card>
+    <div class="chart-card">
+      <div class="chart">
+        <ngx-charts-line-chart
+          [view]="view"
+          [scheme]="colorScheme"
+          [legend]="legend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxis]="xAxis"
+          [yAxis]="yAxis"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          [timeline]="timeline"
+          [results]="multi"
+        >
+        </ngx-charts-line-chart>
+      </div>
+      <div class="vcs-value">
+        <p class="huge-header">VCS: $ 17</p>
+        <p class="big-text">MCAP: $ 203M</p>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div class="section-head">
+  <p class="huge-header"></p>
+  <p class="big-text">Pools and Investments</p>
+</div>
+<div class="pools-investments">
+  <table mat-table [dataSource]="pool_data" class="mat-elevation-z0">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td class="mat-column-name" mat-cell *matCellDef="let element">
+        <div class="flex-cell">
+          <img class="icon" src="../../assets/{{element.icon}}" alt="icon"/>
+          {{element.title}}
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>Investment Value</th>
+      <td mat-cell *matCellDef="let element">$ {{element.value}}</td>
+    </ng-container>
+    <ng-container matColumnDef="tvl">
+      <th mat-header-cell *matHeaderCellDef>Total Value Locked</th>
+      <td mat-cell *matCellDef="let element">$ {{element.tvl}}</td>
+    </ng-container>
+    <ng-container matColumnDef="past24">
+      <th mat-header-cell *matHeaderCellDef>Past 24H</th>
+      <td mat-cell *matCellDef="let element">{{element.past24h}}%</td>
+    </ng-container>
+    <ng-container matColumnDef="mcap">
+      <th mat-header-cell *matHeaderCellDef>Market Cap</th>
+      <td mat-cell *matCellDef="let element">{{element.mcap}}%</td>
+    </ng-container>
+    <ng-container matColumnDef="predicted_earnings">
+      <th mat-header-cell *matHeaderCellDef>Predicted earnings</th>
+      <td mat-cell *matCellDef="let element">
+        Daily% {{element.predicted_apr.daily}}
+        Monthly% {{element.predicted_apr.monthly}}
+        Yearly% {{element.predicted_apr.yearly}}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr (click)="openDialog(row)" mat-row *matRowDef="let element;let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
