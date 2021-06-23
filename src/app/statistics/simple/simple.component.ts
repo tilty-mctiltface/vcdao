@@ -1,22 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {data} from './mock-data'
+import { Component, OnInit } from '@angular/core';
+import {data} from "../mock-data";
+import {PoolDialogComponent} from "../../shared/dialogs/pool/pool-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {PoolDialogComponent} from "../shared/dialogs/pool/pool-dialog.component";
-import {last} from "rxjs/operators";
 
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.scss']
+  selector: 'app-simple',
+  templateUrl: './simple.component.html',
+  styleUrls: ['./simple.component.scss']
 })
-export class StatisticsComponent implements OnInit {
+export class SimpleComponent implements OnInit {
   pool_data = data.pools
   displayedColumns = ['name', 'value', 'tvl', 'past24', 'mcap', 'predicted_earnings']
   multi: any[] = data.your_investment
-  valueView: [number, number] = [900, 400];
+  valueView: [number, number] = [900, 400]
   numCardView: [number, number] = [400, 200]
   numCardData = data.cards
-  cardColor: string = '#2d5660';
+  cardColor: string = '#efefef'
 
   // options
   legend: boolean = true;
@@ -32,7 +31,7 @@ export class StatisticsComponent implements OnInit {
 
   colorScheme = {
     domain: ['#00FFF6', '#166D4B']
-  };
+  }
 
   openDialog(pool: any): void {
     console.log(pool)
@@ -42,9 +41,7 @@ export class StatisticsComponent implements OnInit {
     })
   }
 
-  constructor(public dialog: MatDialog) {
-  }
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

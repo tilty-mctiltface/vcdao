@@ -1,1 +1,43 @@
-<p>advanced works!</p>
+<div class="advanced-container">
+  <mat-card>
+    <div class="infographics">
+      <h1 class="huge-header">TVL</h1>
+      <p class="big-text">$ 180.987.876,23</p>
+      <div class="bar-chart-container">
+        <ngx-charts-bar-horizontal
+          [view]="barView"
+          [scheme]="colorScheme"
+          [results]="barSingle"
+          [gradient]="gradient"
+          [xAxis]="barShowXAxis"
+          [yAxis]="barShowYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="false"
+          [showYAxisLabel]="false">
+        </ngx-charts-bar-horizontal>
+      </div>
+      <div>
+        <h1 class="huge-header">TVL current reward Cycle</h1>
+        <p class="big-text">$ 60.987.876,23</p>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <div class="infographics">
+      <h1 class="huge-header">Max Supply</h1>
+      <p class="big-text">100.000 VCS</p>
+      <div>
+        <ngx-charts-gauge
+          [view]="gaugeView"
+          [scheme]="colorScheme"
+          [results]="gaugeSingle"
+          [legend]="true"
+          [legendPosition]="legendPosition"
+          [legendTitle]="'Tokens'"
+        >
+        </ngx-charts-gauge>
+      </div>
+    </div>
+  </mat-card>
+
+</div>

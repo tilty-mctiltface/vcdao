@@ -19,6 +19,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PoolDialogComponent } from './shared/dialogs/pool/pool-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { AdvancedComponent } from './statistics/advanced/advanced.component';
+import { SimpleComponent } from './statistics/simple/simple.component';
+import { ProComponent } from './statistics/pro/pro.component';
+import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { AdvancedComponent } from './statistics/advanced/advanced.component';
     RewardsComponent,
     WebPlatformComponent,
     PoolDialogComponent,
-    AdvancedComponent
+    AdvancedComponent,
+    SimpleComponent,
+    ProComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

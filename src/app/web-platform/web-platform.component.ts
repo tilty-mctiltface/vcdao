@@ -9,11 +9,10 @@ declare let window: any;
   styleUrls: ['./web-platform.component.scss']
 })
 export class WebPlatformComponent implements OnInit {
-  account = '0x9f96604dBE36cef825d45e189CBed14A8A9e3B9a'
-  web3: any;
+  account = 'Connect metamask'
+  web3: any
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.walletConnect().then(() => {
