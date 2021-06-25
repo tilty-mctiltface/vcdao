@@ -1,40 +1,48 @@
-.advanced-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  .bar-chart-container {
-    height: 120px;
-    padding: 40px 0;
-  }
-  .info-card {
-    margin: 10px;
-    padding: 70px;
-    width: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    .info-text {
-      max-width: 600px;
+mat-card {
+  width: 520px;
+}
+
+.card-margin {
+  margin: 5px;
+}
+
+.bar-chart-container {
+  height: 120px;
+  padding: 40px 0;
+}
+
+.supply-card, .tvl-card {
+  height: 482px;
+}
+
+.whale-card {
+
+  table {
+    width: 100%;
+
+    .mat-row:hover {
+      background-color: rgba(0, 255, 246, 0.1);
+      cursor: pointer;
     }
   }
-  .tokens {
-    height: 500px;
-  }
+}
+.locked-liq-card {
+  height: auto;
+}
+.holders-card {
+  height: auto;
+}
+.huge-header {
+  font-size: large;
+  color: #484848;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
 
-  .huge-header {
-    font-size: large;
-    color: #484848;
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-
-  .big-text {
-    font-size: xxx-large;
-    font-weight: bold;
-    color: #3c3c3c;
-    margin-left: 20px;
-    margin-bottom: 40px;
-  }
+.big-text {
+  font-size: xxx-large;
+  font-weight: bold;
+  color: #3c3c3c;
+  margin-left: 20px;
+  margin-bottom: 40px;
 }

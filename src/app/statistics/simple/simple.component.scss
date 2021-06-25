@@ -1,4 +1,7 @@
 .invest-value-container {
+  mat-card {
+    margin: 5px;
+  }
   .chart-card {
     display: flex;
     align-items: flex-start;
@@ -7,8 +10,6 @@
     flex-wrap: wrap;
 
     .chart {
-      height: 400px;
-      width: 900px;
     }
   }
 }
@@ -56,12 +57,11 @@
 .huge-header {
   font-size: large;
   color: #484848;
-  margin-left: 20px;
   margin-bottom: 20px;
 }
 .big-text {
   font-size: xxx-large;
   font-weight: bold;
   color: #3c3c3c;
-  margin-left: 20px;
+  margin-bottom: 40px;
 }

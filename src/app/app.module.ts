@@ -22,6 +22,7 @@ import { AdvancedComponent } from './statistics/advanced/advanced.component';
 import { SimpleComponent } from './statistics/simple/simple.component';
 import { ProComponent } from './statistics/pro/pro.component';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SearchBarComponent } from './shared/search-bar/search-bar.component';
     AdvancedComponent,
     SimpleComponent,
     ProComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

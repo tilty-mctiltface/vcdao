@@ -1,0 +1,16 @@
+.footer {
+  height: 350px;
+  width: 100%;
+  background: #2D5660;
+  color: #dbdbdb;
+  display: flex;
+  justify-content: center;
+  .footer-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

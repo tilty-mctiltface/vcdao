@@ -1,4 +1,31 @@
 export const data = {
+  whales: [
+    {
+      address: '0x574Fe5a3c1AEBb7528E74cD9a781B391805c19b0',
+      percentage: 7,
+      buyDate: new Date()
+    },
+    {
+      address: '0x574Fe5a3c1AEBb7528E74cD9a781B391805c19b0',
+      percentage: 7,
+      buyDate: new Date()
+    },
+    {
+      address: '0x574Fe5a3c1AEBb7528E74cD9a781B391805c19b0',
+      percentage: 7,
+      buyDate: new Date()
+    },
+    {
+      address: '0x574Fe5a3c1AEBb7528E74cD9a781B391805c19b0',
+      percentage: 7,
+      buyDate: new Date()
+    },
+    {
+      address: '0x574Fe5a3c1AEBb7528E74cD9a781B391805c19b0',
+      percentage: 7,
+      buyDate: new Date()
+    }
+  ],
   your_investment: [
     {
       "name": "Your Investment",

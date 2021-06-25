@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LegendPosition} from "@swimlane/ngx-charts";
+import {data} from "../mock-data";
 
 @Component({
   selector: 'app-advanced',
@@ -7,6 +8,8 @@ import {LegendPosition} from "@swimlane/ngx-charts";
   styleUrls: ['./advanced.component.scss']
 })
 export class AdvancedComponent implements OnInit {
+  whales = data.whales
+  whaleColumns = ['nr', 'address', 'percentage', 'buyDate']
   barView: [number, number] = [460, 100];
   barSingle: any[] = [
     {
