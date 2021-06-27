@@ -1,25 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Injectable } from '@angular/core';
 import Web3 from "web3";
 
 declare let window: any;
 
-@Component({
-  selector: 'app-web-platform',
-  templateUrl: './web-platform.component.html',
-  styleUrls: ['./web-platform.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class WebPlatformComponent implements OnInit {
-  account = 'Connect metamask'
-
-  constructor() { }
-
-  ngOnInit(): void {
-    this.walletConnect().then(() => {
-      window.web3.eth.getAccounts().then((r: any) => {
-        this.account = r
-      })
-    })
-  }
+export class WalletService {
+  web3: any
 
   async walletConnect() {
     if (window.ethereum) {
@@ -34,4 +22,6 @@ export class WebPlatformComponent implements OnInit {
       window.alert('Non-Ethereum browser detected. You Should consider using MetaMask!');
     }
   }
+
+  constructor() { }
 }

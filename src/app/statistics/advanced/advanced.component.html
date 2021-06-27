@@ -1,8 +1,10 @@
 <div>
+  <h1 style="color: #f6f6f6">ADVANCED DATA</h1>
   <div class="flex-start-center">
     <mat-card class="card-margin tvl-card">
       <h1 class="huge-header">TVL</h1>
       <p class="big-text">$ 180.987.876,23</p>
+      <mat-divider></mat-divider>
       <div class="bar-chart-container">
         <ngx-charts-bar-horizontal
           [view]="barView"
@@ -24,6 +26,7 @@
     <mat-card class="card-margin supply-card">
       <h1 class="huge-header">Max Supply</h1>
       <p class="big-text">100.000 VCS</p>
+      <mat-divider></mat-divider>
       <div>
         <ngx-charts-gauge
           [view]="gaugeView"
@@ -40,6 +43,7 @@
   <div class="flex-start-center">
     <mat-card class="card-margin whale-card">
       <h1 class="huge-header">Whales</h1>
+      <mat-divider></mat-divider>
       <table mat-table [dataSource]="whales" class="mat-elevation-z0">
         <ng-container matColumnDef="nr">
           <th mat-header-cell *matHeaderCellDef>Nr.</th>
@@ -63,6 +67,7 @@
     </mat-card>
     <mat-card class="card-margin whale-card">
       <h1 class="huge-header">Most recent transactions</h1>
+      <mat-divider></mat-divider>
       <table mat-table [dataSource]="whales" class="mat-elevation-z0">
         <ng-container matColumnDef="nr">
           <th mat-header-cell *matHeaderCellDef>Nr.</th>
@@ -84,12 +89,13 @@
         <tr mat-row *matRowDef="let element;let row; columns: whaleColumns;"></tr>
       </table>
     </mat-card>
-      <mat-card class="card-margin locked-liq-card">
-        <h1 class="huge-header">Locked Liquidity: __________ LINK</h1>
-      </mat-card>
-      <mat-card class="card-margin holders-card">
-        <h1 class="huge-header">Current holders: 24878</h1>
-      </mat-card>
-
+  </div>
+  <div class="flex-start-center">
+    <mat-card class="card-margin locked-liq-card">
+      <h1 class="huge-header">Locked Liquidity: __________ LINK</h1>
+    </mat-card>
+    <mat-card class="card-margin holders-card">
+      <h1 class="huge-header">Current holders: 24878</h1>
+    </mat-card>
   </div>
 </div>

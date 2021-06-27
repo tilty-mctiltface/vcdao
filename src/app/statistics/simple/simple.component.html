@@ -2,6 +2,7 @@
   <mat-card>
     <p class="huge-header">Your Investment</p>
     <p class="big-text">$ 51.867,23</p>
+    <mat-divider></mat-divider>
     <div class="chart-card">
       <div class="chart">
         <ngx-charts-line-chart
@@ -15,8 +16,7 @@
           [xAxisLabel]="xAxisLabel"
           [yAxisLabel]="yAxisLabel"
           [timeline]="timeline"
-          [results]="multi"
-        >
+          [results]="multi">
         </ngx-charts-line-chart>
       </div>
       <div class="vcs-value">
@@ -33,6 +33,7 @@
     <div>
       <p class="huge-header"></p>
       <p class="big-text">Pools and Investments</p>
+      <mat-divider></mat-divider>
     </div>
     <app-search-bar [placeholder]="'Search by name...'"></app-search-bar>
     <div class="pools-investments">

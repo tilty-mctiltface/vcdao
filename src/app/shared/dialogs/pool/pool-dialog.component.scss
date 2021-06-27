@@ -23,10 +23,11 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    padding: 25px;
     .desc_value-pair {
       background-color: rgba(53, 53, 53, 0.02);
       margin: 10px 20px 10px 10px;
-      padding: 0 5px;
+      padding: 10px;
       box-shadow: inset 0 5px 12px -1px rgba(0, 0, 0, 0.2);
       .desc {
         width: 80px;
@@ -47,13 +48,13 @@
     .pool-button {
       cursor: pointer;
       padding: 10px 30px;
-      border: 1px solid #00FFF6;
+      border: 1px solid #166D4B;
       border-radius: 1px;
       background-color: #ffffff;
       transition-duration: 0.2s;
       box-shadow: 0 10px 12px -1px rgba(0, 0, 0, 0.2);
       &:hover {
-        background-color: #00FFF6;
+        background-color: #166D4B;
         color: #fdfdfd;
       }
     }

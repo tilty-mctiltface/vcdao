@@ -4,7 +4,7 @@ import {LandingPageComponent} from "./landing-page/landing-page.component";
 import {PoolsComponent} from "./pools/pools.component";
 import {WebPlatformComponent} from "./web-platform/web-platform.component";
 import {RewardsComponent} from "./rewards/rewards.component";
-import {StatisticsComponent} from "./statistics/statistics.component";
+import {DashboardComponent} from "./statistics/dashboard.component";
 
 const routes: Routes = [
   {
@@ -24,8 +24,8 @@ const routes: Routes = [
         component: RewardsComponent
       },
       {
-        path: 'statistics',
-        component: StatisticsComponent
+        path: 'dashboard',
+        component: DashboardComponent
       }
     ]
   }
