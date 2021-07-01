@@ -1,1 +1,17 @@
-<p>investment-chart works!</p>
+<div class="container">
+  <ngx-charts-line-chart
+    [scheme]="colorScheme"
+    [legend]="legend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [yAxis]="yAxis"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [yScaleMin]="30000"
+    [yScaleMax]="60000"
+    [curve]="curve"
+    [timeline]="timeline"
+    [results]="chartData">
+  </ngx-charts-line-chart>
+</div>
