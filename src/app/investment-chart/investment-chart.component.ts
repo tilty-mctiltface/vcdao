@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {data} from "./mock-data";
+import * as shape from 'd3-shape';
 
 @Component({
   selector: 'app-investment-chart',
@@ -11,7 +12,7 @@ export class InvestmentChartComponent implements OnInit {
   view: [number, number] = [700, 300];
 
   // options
-  rangeFillOpacity: number = 1
+  curve = shape.curveCatmullRom
   legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
