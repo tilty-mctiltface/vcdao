@@ -6,10 +6,10 @@ import {last} from "rxjs/operators";
 
 @Component({
   selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.scss']
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class StatisticsComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   pool_data = data.pools
   displayedColumns = ['name', 'value', 'tvl', 'past24', 'mcap', 'predicted_earnings']
   multi: any[] = data.your_investment

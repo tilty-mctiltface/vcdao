@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {RouterModule} from "@angular/router";
 import {LandingPageComponent} from './landing-page/landing-page.component';
 import {PoolsComponent} from './pools/pools.component';
-import {StatisticsComponent} from './statistics/statistics.component';
+import {DashboardComponent} from './statistics/dashboard.component';
 import {RewardsComponent} from './rewards/rewards.component';
 import {WebPlatformComponent} from './web-platform/web-platform.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -23,13 +23,14 @@ import { SimpleComponent } from './statistics/simple/simple.component';
 import { ProComponent } from './statistics/pro/pro.component';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     PoolsComponent,
-    StatisticsComponent,
+    DashboardComponent,
     RewardsComponent,
     WebPlatformComponent,
     PoolDialogComponent,
@@ -50,6 +51,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatGridListModule,
     MatTableModule,
     MatDialogModule,
+    MatDividerModule,
     NgxChartsModule
   ],
   providers: [],

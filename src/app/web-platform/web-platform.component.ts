@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import Web3 from "web3";
+import {WalletService} from "../services/wallet.service";
 
 declare let window: any;
 
@@ -10,29 +11,20 @@ declare let window: any;
 })
 export class WebPlatformComponent implements OnInit {
   account = 'Connect metamask'
-  web3: any
 
-  constructor() { }
+  constructor(private walletService: WalletService) { }
 
   ngOnInit(): void {
-    this.walletConnect().then(() => {
+    this.walletService.walletConnect().then(() => {
       window.web3.eth.getAccounts().then((r: any) => {
         this.account = r
+        this.walletService.detectEthereumNetwork()
       })
     })
+
+    window.ethereum.on('networkChanged', function(networkId: any){
+      console.log('networkChanged',networkId);
+    });
   }
 
-  async walletConnect() {
-    if (window.ethereum) {
-      await window.ethereum.send('eth_requestAccounts')
-      window.web3 = new Web3(window.ethereum);
-      window.ethereum.enable();
-    } else if (window.web3) {
-      console.log('In 2')
-      await window.ethereum.send('eth_requestAccounts')
-      window.web3 = new Web3(window.web3.currentProvider);
-    } else {
-      window.alert('Non-Ethereum browser detected. You Should consider using MetaMask!');
-    }
-  }
 }
