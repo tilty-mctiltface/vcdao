@@ -27,6 +27,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { InvestmentChartComponent } from './investment-chart/investment-chart.component';
 import { InvestmentPercentageIncreaseComponent } from './investment-percentage-increase/investment-percentage-increase.component';
 import { InvestmentValueComponent } from './investment-value/investment-value.component';
+import { CardWrapperComponent } from './shared/card-wrapper/card-wrapper.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { InvestmentValueComponent } from './investment-value/investment-value.co
     InvestmentChartComponent,
     InvestmentPercentageIncreaseComponent,
     InvestmentValueComponent,
+    CardWrapperComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+@import '../../styles/globals';
+
+:host {
+    border: 1px solid $primary;
+    border-radius: 4px;
+}
