@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InvestmentPercentageIncreaseComponent } from './investment-percentage-increase.component';
+import { InvestmentPercentageIncreaseComponent } from './percentage-increase.component';
 
 describe('InvestmentPercentageIncreaseComponent', () => {
   let component: InvestmentPercentageIncreaseComponent;
