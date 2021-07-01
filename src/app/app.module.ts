@@ -24,6 +24,10 @@ import { ProComponent } from './statistics/pro/pro.component';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import {MatDividerModule} from "@angular/material/divider";
+import { PriceIncreaseComponent } from './price-increase/price-increase.component';
+import { InvestmentPercentageIncreaseComponent } from './investment-percentage-increase/investment-percentage-increase.component';
+import { InvestmentValueComponent } from './investment-value/investment-value.component';
+import { InvestmentChartComponent } from './investment-chart/investment-chart.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import {MatDividerModule} from "@angular/material/divider";
     SimpleComponent,
     ProComponent,
     SearchBarComponent,
-    FooterComponent
+    FooterComponent,
+    PriceIncreaseComponent,
+    InvestmentPercentageIncreaseComponent,
+    InvestmentValueComponent,
+    InvestmentChartComponent
   ],
   imports: [
     BrowserModule,
