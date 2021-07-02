@@ -26,7 +26,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { MatDividerModule } from "@angular/material/divider";
 import { InvestmentChartComponent } from './investment-chart/investment-chart.component';
 import { InvestmentPercentageIncreaseComponent } from './shared/investment-percentage-increase/percentage-increase.component';
-import { InvestmentValueComponent } from './investment-value/investment-value.component';
+import { InvestmentValueComponent } from './shared/investment-value/investment-value.component';
 import { CardWrapperComponent } from './shared/card-wrapper/card-wrapper.component';
 import {MatRadioModule} from '@angular/material/radio';
 
