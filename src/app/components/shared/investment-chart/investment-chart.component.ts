@@ -8,7 +8,7 @@ import * as shape from 'd3-shape';
   styleUrls: ['./investment-chart.component.scss']
 })
 export class InvestmentChartComponent implements OnInit {
-  chartData: any[] = data
+  chartData: any[] = []
   view: [number, number] = [700, 300];
 
   // options
@@ -27,9 +27,16 @@ export class InvestmentChartComponent implements OnInit {
   colorScheme = {
     domain: ['#00FFF6']
   }
+
+  formatUnix(val: number) {
+    console.log(val)
+    return new Date(val).toLocaleDateString('en-US')
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+    this.chartData = data
   }
 
 }

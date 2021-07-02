@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import Web3 from "web3";
-import {WalletService} from "../services/wallet.service";
+import {WalletService} from "../../services/wallet.service";
 
 declare let window: any;
 
@@ -21,6 +21,10 @@ export class WebPlatformComponent implements OnInit {
         this.walletService.detectEthereumNetwork()
       })
     })
+  }
+
+  getAccount() {
+    return `${this.account[0].slice(0, 5)}...${this.account[0].slice(-5)}`
   }
 
   ngOnInit(): void {

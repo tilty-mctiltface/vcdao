@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {data} from "../mock-data";
 import {PoolDialogComponent} from "../../shared/dialogs/pool/pool-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import { TimeRange } from 'src/app/shared/investment-percentage-increase/time-ranges.enum';
+import { TimeRange } from 'src/app/components/shared/investment-percentage-increase/time-ranges.enum';
 
 @Component({
   selector: 'app-simple',
@@ -10,7 +10,7 @@ import { TimeRange } from 'src/app/shared/investment-percentage-increase/time-ra
   styleUrls: ['./simple.component.scss']
 })
 export class SimpleComponent implements OnInit {
-  
+
   initialInvestmentValue: number = 10;
   currentInvestmentValue: number = 20;
 
@@ -51,7 +51,7 @@ export class SimpleComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  
+
   changeTimeRange(timerange: TimeRange) {
     switch (timerange) {
       case TimeRange.ONE_DAY:

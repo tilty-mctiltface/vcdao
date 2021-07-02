@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from "@angular/router";
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { RewardsComponent } from './rewards/rewards.component';
-import { WebPlatformComponent } from './web-platform/web-platform.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RewardsComponent } from './components/rewards/rewards.component';
+import { WebPlatformComponent } from './components/web-platform/web-platform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
@@ -15,21 +15,22 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatTableModule } from "@angular/material/table";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { PoolDialogComponent } from './shared/dialogs/pool/pool-dialog.component';
+import { PoolDialogComponent } from './components/shared/dialogs/pool/pool-dialog.component';
 import { MatDialogModule } from "@angular/material/dialog";
-import { AdvancedComponent } from './dashboard/advanced/advanced.component';
-import { SimpleComponent } from './dashboard/simple/simple.component';
-import { ProComponent } from './dashboard/pro/pro.component';
-import { SearchBarComponent } from './shared/search-bar/search-bar.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { AdvancedComponent } from './components/dashboard/advanced/advanced.component';
+import { SimpleComponent } from './components/dashboard/simple/simple.component';
+import { ProComponent } from './components/dashboard/pro/pro.component';
+import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 import { MatDividerModule } from "@angular/material/divider";
-import { InvestmentChartComponent } from './shared/investment-chart/investment-chart.component';
-import { InvestmentPercentageIncreaseComponent } from './shared/investment-percentage-increase/percentage-increase.component';
-import { InvestmentValueComponent } from './shared/investment-value/investment-value.component';
-import { CardWrapperComponent } from './shared/card-wrapper/card-wrapper.component';
+import { InvestmentChartComponent } from './components/shared/investment-chart/investment-chart.component';
+import { InvestmentPercentageIncreaseComponent } from './components/shared/investment-percentage-increase/percentage-increase.component';
+import { InvestmentValueComponent } from './components/shared/investment-value/investment-value.component';
+import { CardWrapperComponent } from './components/shared/card-wrapper/card-wrapper.component';
 import {MatRadioModule} from '@angular/material/radio';
-import { PoolListComponent } from './shared/pool-list/pool-list.component';
-import { PoolListWrapperComponent } from './shared/pool-list-wrapper/pool-list-wrapper.component';
+import { PoolListComponent } from './components/shared/pool-list/pool-list.component';
+import { PoolListWrapperComponent } from './components/shared/pool-list-wrapper/pool-list-wrapper.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { PoolListWrapperComponent } from './shared/pool-list-wrapper/pool-list-w
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatCardModule,
     MatButtonModule,
     MatProgressBarModule,

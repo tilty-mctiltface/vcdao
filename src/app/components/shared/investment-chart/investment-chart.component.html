@@ -1,3 +1,4 @@
+<h1 style=" font-size: 32px">Your Investments</h1>
 <div class="container">
   <ngx-charts-line-chart
     [scheme]="colorScheme"
@@ -9,7 +10,8 @@
     [xAxisLabel]="xAxisLabel"
     [yAxisLabel]="yAxisLabel"
     [yScaleMin]="30000"
-    [yScaleMax]="60000"
+    [yScaleMax]="45000"
+    [xAxisTickFormatting]="formatUnix"
     [curve]="curve"
     [timeline]="timeline"
     [results]="chartData">

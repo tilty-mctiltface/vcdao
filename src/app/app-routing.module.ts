@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LandingPageComponent} from "./landing-page/landing-page.component";
-import {WebPlatformComponent} from "./web-platform/web-platform.component";
-import {RewardsComponent} from "./rewards/rewards.component";
-import {DashboardComponent} from "./dashboard/dashboard.component";
+import {LandingPageComponent} from "./components/landing-page/landing-page.component";
+import {WebPlatformComponent} from "./components/web-platform/web-platform.component";
+import {RewardsComponent} from "./components/rewards/rewards.component";
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
 
 const routes: Routes = [
   {

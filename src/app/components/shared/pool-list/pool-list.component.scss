@@ -1,4 +1,4 @@
-@import '../../styles/globals';
+@import 'src/app/styles/globals';
 
 table {
     width: 100%;
@@ -14,7 +14,12 @@ td, th {
     padding: 12px;
     vertical-align: middle;
 }
-
+th {
+  font-weight: normal;
+  font-size: 16px;
+  color: $accent;
+  background-color: $component-bg-light;
+}
 .icon-cell {
     width: 	120px;
     text-align: end;
@@ -22,8 +27,11 @@ td, th {
 
 table, tr {
     border: 1px solid $component-bg-light;
-    border-left-width: 10px;
-    border-left-color: $accent;
+    border-left: 10px solid $accent;
+}
+.rows:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
 }
 
 img {

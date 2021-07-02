@@ -1,4 +1,4 @@
-@import '../styles/globals';
+@import 'src/app/styles/globals';
 .header {
   width: 100%;
   height: 80px;
@@ -47,6 +47,7 @@
   }
 
   .wallet-connection {
+    padding: 0 10px;
     p {
       margin-right: 10px;
     }

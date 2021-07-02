@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pool } from '../pool-list-wrapper/pool-list-wrapper.component';
 import { pools } from "./mock-data";
+import {CoingeckoService} from "../../../services/coingecko/coingecko.service";
 
 
 
@@ -12,10 +13,12 @@ import { pools } from "./mock-data";
 export class PoolListComponent implements OnInit {
 
   @Input() pools: Pool[] = [];
+  private tokens = ['bitcoin', 'weth', 'wbnb']
 
-  constructor() { }
+  constructor(private coinGecko: CoingeckoService) { }
 
   ngOnInit(): void {
+    // this.coinGecko.getTokenById()
   }
 
 }

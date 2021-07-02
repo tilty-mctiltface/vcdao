@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th></th>
+    <th>Token</th>
+    <th>Value</th>
+    <th>TVL</th>
+    <th>Market Cap</th>
+    <th>Past 24h</th>
+    <th>APY</th>
+    <th>Daily APR</th>
+  </tr>
+  <tr class="rows" *ngFor="let pool of pools">
+    <td class="icon-cell"><img [src]="'/assets/' + pool.icon"/></td>
+    <td>{{pool.title}}</td>
+    <td>$ {{pool.value}}</td>
+    <td>$ {{pool.tvl}}</td>
+    <td>$ {{pool.mcap}}</td>
+    <td>{{pool.past24h}}%</td>
+    <td>{{pool.predicted_apr?.yearly}}%</td>
+    <td>{{pool.predicted_apr?.daily}}%</td>
+  </tr>
+</table>
