@@ -43,10 +43,25 @@
   }
 
   .wallet-connection {
-    border-bottom: 1px solid #144831;
-    padding: 10px 30px;
-    margin-right: 10px;
-    height: min-content;
+    p {
+      margin-right: 10px;
+    }
+
+    .btn {
+      cursor: pointer;
+      border: 1px solid #00FFF6;
+      border-radius: 2px;
+      background: none;
+      color: #00FFF6;
+      padding: 10px 16px;
+      margin-right: 10px;
+      transition-duration: .15s;
+
+      &:hover {
+        background-color: #00FFF6;
+        color: #1c1f2d;
+      }
+    }
   }
 }
 

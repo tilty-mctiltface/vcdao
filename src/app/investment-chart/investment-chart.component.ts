@@ -26,7 +26,7 @@ export class InvestmentChartComponent implements OnInit {
 
   colorScheme = {
     domain: ['#00FFF6']
-  };
+  }
   constructor() { }
 
   ngOnInit(): void {

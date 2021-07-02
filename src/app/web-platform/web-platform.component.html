@@ -8,7 +8,9 @@
     </ul>
   </nav>
   <div class="wallet-connection">
-    <p style="margin: 0">{{account}}</p>
+    <button class="btn" (click)="connect()" *ngIf="account === ''">Connect Metamask</button>
+    <p style="margin: 0" *ngIf="account !== ''">{{account | slice:0:4 }}...{{account | slice:38:42 }}</p> 
+<!--    TODO fix this shit-->
   </div>
 </div>
 <div class="app-body-container">

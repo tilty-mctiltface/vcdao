@@ -10,18 +10,20 @@ declare let window: any;
   styleUrls: ['./web-platform.component.scss']
 })
 export class WebPlatformComponent implements OnInit {
-  account = 'Connect metamask'
+  account: string = ''
 
   constructor(private walletService: WalletService) { }
 
-  ngOnInit(): void {
+  connect() {
     this.walletService.walletConnect().then(() => {
       window.web3.eth.getAccounts().then((r: any) => {
         this.account = r
         this.walletService.detectEthereumNetwork()
       })
     })
+  }
 
+  ngOnInit(): void {
     window.ethereum.on('networkChanged', function(networkId: any){
       console.log('networkChanged',networkId);
     });
