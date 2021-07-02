@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {data} from "../mock-data";
 import {PoolDialogComponent} from "../../shared/dialogs/pool/pool-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import { TimeRange } from 'src/app/shared/investment-percentage-increase/time-ranges.enum';
 
 @Component({
   selector: 'app-simple',
@@ -9,6 +10,11 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./simple.component.scss']
 })
 export class SimpleComponent implements OnInit {
+  
+  initialInvestmentValue: number = 10;
+  currentInvestmentValue: number = 20;
+
+
   pool_data = data.pools
   displayedColumns = ['name', 'value', 'tvl', 'past24', 'mcap', 'predicted_earnings']
   multi: any[] = data.your_investment
@@ -44,4 +50,28 @@ export class SimpleComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void { }
+
+  
+  changeTimeRange(timerange: TimeRange) {
+    switch (timerange) {
+      case TimeRange.ONE_DAY:
+        this.initialInvestmentValue = 1;
+        this.currentInvestmentValue = 2;
+        return;
+      case TimeRange.ONE_WEEK:
+        this.initialInvestmentValue = 0;
+        this.currentInvestmentValue = 0;
+        return;
+      case TimeRange.ONE_MONTH:
+        this.initialInvestmentValue = 150;
+        this.currentInvestmentValue = 131.31;
+        return;
+      case TimeRange.ONE_YEAR:
+        this.initialInvestmentValue = 2;
+        this.currentInvestmentValue = 1;
+        return;
+      default:
+        return;
+    }
+  }
 }

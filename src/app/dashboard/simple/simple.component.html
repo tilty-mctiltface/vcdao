@@ -1,3 +1,4 @@
 <investment-chart></investment-chart>
-<percentage-increase></percentage-increase>
-<investment-value></investment-value>
+<percentage-increase [initialValue]="initialInvestmentValue" [currentValue]="currentInvestmentValue" (timeRangeChanged)="changeTimeRange($event)"></percentage-increase>
+<investment-value [initialValue]="initialInvestmentValue" [currentValue]="currentInvestmentValue"></investment-value>
+<pool-list-wrapper></pool-list-wrapper>

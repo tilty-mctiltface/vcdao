@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from "@angular/router";
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { PoolsComponent } from './pools/pools.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import { WebPlatformComponent } from './web-platform/web-platform.component';
@@ -29,13 +28,14 @@ import { InvestmentPercentageIncreaseComponent } from './shared/investment-perce
 import { InvestmentValueComponent } from './shared/investment-value/investment-value.component';
 import { CardWrapperComponent } from './shared/card-wrapper/card-wrapper.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { PoolListComponent } from './shared/pool-list/pool-list.component';
+import { PoolListWrapperComponent } from './shared/pool-list-wrapper/pool-list-wrapper.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    PoolsComponent,
     DashboardComponent,
     RewardsComponent,
     WebPlatformComponent,
@@ -49,6 +49,8 @@ import {MatRadioModule} from '@angular/material/radio';
     InvestmentPercentageIncreaseComponent,
     InvestmentValueComponent,
     CardWrapperComponent,
+    PoolListComponent,
+    PoolListWrapperComponent,
   ],
   imports: [
     BrowserModule,

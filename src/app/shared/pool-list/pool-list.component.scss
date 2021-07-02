@@ -1,0 +1,29 @@
+@import '../../styles/globals';
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: $component-bg;
+    font-size: 20px;
+    line-height: normal;
+}
+
+td, th {
+    text-align: center;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.icon-cell {
+    width: 	120px;
+    text-align: end;
+}
+
+table, tr {
+    border: 1px solid $component-bg-light;
+}
+
+img {
+    height: 64px;
+    width: 64px;
+}

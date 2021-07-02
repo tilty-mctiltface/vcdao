@@ -24,7 +24,7 @@ export class WebPlatformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.ethereum.on('networkChanged', function(networkId: any){
+    window?.ethereum?.on('networkChanged', function(networkId: any){
       console.log('networkChanged',networkId);
     });
   }
