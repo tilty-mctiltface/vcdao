@@ -3,7 +3,7 @@ import {data} from "./mock-data";
 import * as shape from 'd3-shape';
 
 @Component({
-  selector: 'app-investment-chart',
+  selector: 'investment-chart',
   templateUrl: './investment-chart.component.html',
   styleUrls: ['./investment-chart.component.scss']
 })

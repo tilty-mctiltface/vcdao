@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import './app/styles/globals';
 html, body {
   height: 100%;
 }
@@ -7,7 +7,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #fdfdfd;
+  background-color: $primary-bg;
 }
 
 button:focus {
@@ -22,7 +22,7 @@ button:focus {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 6px;
 }
 
 /* Track */
@@ -32,18 +32,10 @@ button:focus {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #144831;
+  background: $accent;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1c6746;
-}
-
-.flex-start-center {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+  background: $accent;
 }

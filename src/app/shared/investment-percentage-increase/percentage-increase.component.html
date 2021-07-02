@@ -3,7 +3,7 @@
         {{percentage}}%
     </span>
     <mat-radio-group class="button-container" aria-label="date range" (change)="dateRangeChanged($event.value)">
-        <mat-radio-button [value]="TimeRange.ONE_DAY">1 Day</mat-radio-button>
+        <mat-radio-button checked [value]="TimeRange.ONE_DAY">1 Day</mat-radio-button>
         <mat-radio-button [value]="TimeRange.ONE_WEEK">1 Week</mat-radio-button>
         <mat-radio-button [value]="TimeRange.ONE_MONTH">1 Month</mat-radio-button>
         <mat-radio-button [value]="TimeRange.ONE_YEAR">1 Year</mat-radio-button>

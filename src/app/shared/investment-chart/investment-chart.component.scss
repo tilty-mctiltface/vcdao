@@ -1,3 +1,4 @@
+@import '../../styles/globals';
 .container {
   width: 900px;
   height: 300px;
@@ -5,7 +6,7 @@
 
 ::ng-deep .ngx-charts {
   text{
-    fill: #212121 !important;
+    fill: $font-color !important;
   }
 }
 ::ng-deep .ngx-charts .line-highlight {

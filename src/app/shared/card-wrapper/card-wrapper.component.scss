@@ -1,7 +1,9 @@
 @import '../../styles/globals';
 
 :host {
-    border: 1px solid $primary;
-    border-radius: 4px;
-    box-sizing: border-box;
+  border: 1px solid $accent;
+  border-left-width: 6px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: $font-color;
 }

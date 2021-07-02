@@ -1,15 +1,17 @@
 <div class="header">
-  <img class="logo" src="assets/Asset%202.svg">
-  <nav>
-    <ul class="menu-list">
-      <li [routerLink]="'pools'" >Pools</li>
-      <li [routerLink]="'rewards'" >Rewards</li>
-      <li [routerLink]="'dashboard'" >Dashboard</li>
-    </ul>
-  </nav>
+  <div class="menu-container">
+    <img class="logo" src="assets/Asset%202.svg">
+    <nav>
+      <ul class="menu-list">
+        <li [routerLink]="'pools'" >Pools</li>
+        <li [routerLink]="'rewards'" >Rewards</li>
+        <li [routerLink]="'dashboard'" >Dashboard</li>
+      </ul>
+    </nav>
+  </div>
   <div class="wallet-connection">
     <button class="btn" (click)="connect()" *ngIf="account === ''">Connect Metamask</button>
-    <p style="margin: 0" *ngIf="account !== ''">{{account | slice:0:4 }}...{{account | slice:38:42 }}</p> 
+    <p style="margin: 0" *ngIf="account !== ''">{{account | slice:0:4 }}...{{account | slice:38:42 }}</p>
 <!--    TODO fix this shit-->
   </div>
 </div>

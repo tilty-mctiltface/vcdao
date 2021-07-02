@@ -1,29 +1,29 @@
 card-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .percentage {
-    font-size: 72px;
-    line-height: normal;
+  font-size: 72px;
+  line-height: normal;
 
-    &.negative {
-        color: red;
-    }
+  &.negative {
+    color: red;
+  }
 
-    &.positive {
-        color: green;
-    }
+  &.positive {
+    color: green;
+  }
 }
 
 .button-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    mat-radio-button {
-        margin: 6px;
-    }
+  mat-radio-button {
+    margin: 6px;
+  }
 }
