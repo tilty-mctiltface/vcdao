@@ -31,6 +31,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import { PoolListComponent } from './components/shared/pool-list/pool-list.component';
 import { PoolListWrapperComponent } from './components/shared/pool-list-wrapper/pool-list-wrapper.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PodHealthComponent } from './components/pod-health/pod-health.component';
+import { HealthClassPipe } from './components/pod-health/health-class-pipe/health-class.pipe';
+import { ValueLockedComponent } from './components/value-locked/value-locked.component';
+import { CoinRatioComponent } from './components/coin-ratio/coin-ratio.component';
+import { PodDataWrapperComponent } from './components/pod-data-wrapper/pod-data-wrapper.component';
 
 
 @NgModule({
@@ -52,6 +57,11 @@ import {HttpClientModule} from "@angular/common/http";
     CardWrapperComponent,
     PoolListComponent,
     PoolListWrapperComponent,
+    PodHealthComponent,
+    ValueLockedComponent,
+    CoinRatioComponent,
+    HealthClassPipe,
+    PodDataWrapperComponent,
   ],
   imports: [
     BrowserModule,

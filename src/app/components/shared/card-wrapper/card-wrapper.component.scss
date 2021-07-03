@@ -6,4 +6,8 @@
   border-radius: 4px;
   box-sizing: border-box;
   color: $font-color;
+
+  &.round-border {
+    border-radius: 40px;
+  }
 }

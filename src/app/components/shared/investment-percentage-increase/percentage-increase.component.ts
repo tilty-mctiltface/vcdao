@@ -1,5 +1,6 @@
 import { EventEmitter, OnChanges } from '@angular/core';
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { to2DecimalPlaces } from 'src/app/utils/number.util';
 import { TimeRange } from './time-ranges.enum';
 
 
@@ -37,6 +38,6 @@ export class InvestmentPercentageIncreaseComponent implements OnInit, OnChanges 
     if (this.initialValue === 0) {
       return 0;
     }
-    return parseFloat(((this.currentValue - this.initialValue) / this.initialValue * 100).toFixed(2));
+    return to2DecimalPlaces((this.currentValue - this.initialValue) / this.initialValue * 100);
   }
 }

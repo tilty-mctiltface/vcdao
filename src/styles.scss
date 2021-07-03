@@ -40,3 +40,16 @@ button:focus {
 ::-webkit-scrollbar-thumb:hover {
   background: $accent;
 }
+
+.positive {
+  color: $green;
+}
+
+
+.negative {
+  color: $red;
+}
+
+.bold {
+  font-weight: bold;
+}

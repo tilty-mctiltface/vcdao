@@ -1,0 +1,18 @@
+@import 'src/app/styles/globals';
+
+card-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.label, .content {
+    margin-right: 24px;
+}
+
+.label {
+    padding: 12px;
+    background: $accent;
+    color: $primary-bg;
+    line-height: normal;
+    font-size: 18px;
+}

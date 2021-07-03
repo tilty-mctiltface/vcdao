@@ -5,22 +5,38 @@
     column-gap: 100px;
 }
 
+.info-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+    grid-column: span 3;
+
+    * {
+        margin-right: 12px;
+    }
+
+    .pod-data-text {
+        font-size: 18px;
+    }
+}
+
 investment-chart {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
 percentage-increase {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 investment-value {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 pool-list-wrapper {
-    grid-column: 1 / 4;
-  margin-top: 24px;
+    grid-column: span 3;
+    margin-top: 24px;
 }

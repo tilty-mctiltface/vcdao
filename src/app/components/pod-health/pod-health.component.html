@@ -1,0 +1,5 @@
+<pod-data-wrapper label="Health:" [content]="content"></pod-data-wrapper>
+
+<ng-template #content>
+    <span class="health-status bold" [ngClass]="healthStatus | healthClass">{{healthStatus}}</span>
+</ng-template>

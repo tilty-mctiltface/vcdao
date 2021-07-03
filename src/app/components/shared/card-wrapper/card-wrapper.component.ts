@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'card-wrapper',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-wrapper.component.scss']
 })
 export class CardWrapperComponent implements OnInit {
+
+  @Input() @HostBinding('class.round-border') roundBorder: boolean = false;
 
   constructor() { }
 
