@@ -14,7 +14,7 @@ export class ValueLockedComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTotalValueLocked().subscribe(() =>
-      this.totalValueLocked = to2DecimalPlaces(this.totalValueLocked + (Math.random() * 100 * (Math.round(Math.random()) ? 1 : -1)))
+      this.totalValueLocked = this.totalValueLocked + (Math.random() * 100 * (Math.round(Math.random()) ? 1 : -1))
     );
   }
 

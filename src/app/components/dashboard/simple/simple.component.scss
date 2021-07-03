@@ -29,11 +29,13 @@ investment-chart {
 percentage-increase {
     grid-column: span 1;
     grid-row: span 1;
+    align-self: flex-end;
 }
 
 investment-value {
     grid-column: span 1;
     grid-row: span 1;
+    align-self: flex-end;
 }
 
 pool-list-wrapper {

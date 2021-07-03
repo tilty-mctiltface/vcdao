@@ -1,6 +1,6 @@
 <card-wrapper>
     <span class="percentage" [ngClass]="percentage > 0 ? 'positive' :  percentage == 0 ? '' : 'negative'">
-        {{percentage}}%
+        {{percentage | number: '1.0-2'}}%
     </span>
     <mat-radio-group class="button-container" aria-label="date range" (change)="dateRangeChanged($event.value)">
         <mat-radio-button checked [value]="TimeRange.ONE_DAY">1 Day</mat-radio-button>
