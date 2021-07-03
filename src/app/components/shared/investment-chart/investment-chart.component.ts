@@ -17,7 +17,7 @@ export class InvestmentChartComponent implements OnInit {
   showLabels: boolean = true;
   animations: boolean = true;
   yAxis: boolean = true;
-  xAxis: boolean = false;
+  xAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = false;
   xAxisLabel: string = 'Time';
@@ -29,7 +29,6 @@ export class InvestmentChartComponent implements OnInit {
   }
 
   formatUnix(val: number) {
-    console.log(val)
     return new Date(val).toLocaleDateString('en-US')
   }
 
