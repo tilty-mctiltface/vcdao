@@ -1,4 +1,4 @@
 <card-wrapper>
-    <span class="current-value">${{currentValue}}</span>
-    <span class="initial-value"><span>Initial value:</span> ${{initialValue}}</span>
+    <span class="current-value">${{currentValue | number: '1.2-2'}}</span>
+    <span class="initial-value"><span>Initial value:</span> ${{initialValue | number: '1.2-2'}}</span>
 </card-wrapper>

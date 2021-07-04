@@ -5,6 +5,6 @@
     <coin-ratio></coin-ratio>
 </div>
 <investment-chart></investment-chart>
-<percentage-increase [initialValue]="initialInvestmentValue" [currentValue]="currentInvestmentValue" (timeRangeChanged)="changeTimeRange($event)"></percentage-increase>
+<percentage-increase [initialValue]="investmentValueInPointInTime" [currentValue]="currentInvestmentValue" (timeRangeChanged)="changeTimeRange($event)"></percentage-increase>
 <investment-value [initialValue]="initialInvestmentValue" [currentValue]="currentInvestmentValue"></investment-value>
 <pool-list-wrapper></pool-list-wrapper>
