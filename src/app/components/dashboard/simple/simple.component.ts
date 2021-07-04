@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {data} from "../mock-data";
-import {PoolDialogComponent} from "../../shared/dialogs/pool/pool-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
+import { data } from "../mock-data";
+import { PoolDialogComponent } from "../../shared/dialogs/pool/pool-dialog.component";
+import { MatDialog } from "@angular/material/dialog";
 import { TimeRange } from 'src/app/components/shared/investment-percentage-increase/time-ranges.enum';
+import { interval, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-simple',
@@ -11,8 +12,16 @@ import { TimeRange } from 'src/app/components/shared/investment-percentage-incre
 })
 export class SimpleComponent implements OnInit {
 
-  initialInvestmentValue: number = 10;
-  currentInvestmentValue: number = 20;
+  initialInvestmentValue: number = 12_131;
+  currentInvestmentValue: number = 25_000;
+  investmentValueInPointInTime: number = 10_000;
+
+  investmentValueInPointOfTimeMap: Record<TimeRange, number> = {
+    "0": 24_331,
+    "1": 22_103,
+    "2": 19_145,
+    "3": this.initialInvestmentValue,
+  };
 
 
   pool_data = data.pools
@@ -49,29 +58,20 @@ export class SimpleComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.investmentValueInPointInTime = this.investmentValueInPointOfTimeMap[TimeRange.ONE_DAY];
+
+    this.getInterval().subscribe(
+      () => this.currentInvestmentValue = this.currentInvestmentValue + (Math.random() * 5 * (Math.round(Math.random()) ? 1 : -1))
+    )
+  }
 
 
-  changeTimeRange(timerange: TimeRange) {
-    switch (timerange) {
-      case TimeRange.ONE_DAY:
-        this.initialInvestmentValue = 1;
-        this.currentInvestmentValue = 2;
-        return;
-      case TimeRange.ONE_WEEK:
-        this.initialInvestmentValue = 0;
-        this.currentInvestmentValue = 0;
-        return;
-      case TimeRange.ONE_MONTH:
-        this.initialInvestmentValue = 150;
-        this.currentInvestmentValue = 131.31;
-        return;
-      case TimeRange.ONE_YEAR:
-        this.initialInvestmentValue = 2;
-        this.currentInvestmentValue = 1;
-        return;
-      default:
-        return;
-    }
+  changeTimeRange(timeRange: TimeRange): void {
+    this.investmentValueInPointInTime = this.investmentValueInPointOfTimeMap[timeRange];
+  }
+
+  getInterval(): Observable<number> {
+    return interval(3000);
   }
 }
