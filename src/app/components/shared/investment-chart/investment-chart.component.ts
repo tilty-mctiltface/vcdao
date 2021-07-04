@@ -50,6 +50,7 @@ export class InvestmentChartComponent implements OnInit {
           }]
         ]
         this.chartData = [... this.chartData]
+        console.log(JSON.stringify(this.chartData[0].series))
       }
     )
   }

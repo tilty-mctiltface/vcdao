@@ -1,4 +1,4 @@
 <pod-data-wrapper label="TVL" [content]="content"></pod-data-wrapper>
 <ng-template #content>
-    <span class="total-value-locked-value">${{totalValueLocked | number: '1.2-2'}}</span>
+    <span>$ </span><span [countUp]="totalValueLocked" class="total-value-locked-value">{{totalValueLocked | number: '1.2-2'}}</span>
 </ng-template>

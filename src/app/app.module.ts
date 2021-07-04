@@ -36,6 +36,7 @@ import { HealthClassPipe } from './components/pod-health/health-class-pipe/healt
 import { ValueLockedComponent } from './components/value-locked/value-locked.component';
 import { CoinRatioComponent } from './components/coin-ratio/coin-ratio.component';
 import { PodDataWrapperComponent } from './components/pod-data-wrapper/pod-data-wrapper.component';
+import {CountUpModule} from "ngx-countup";
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { PodDataWrapperComponent } from './components/pod-data-wrapper/pod-data-
     MatDialogModule,
     MatDividerModule,
     NgxChartsModule,
-    MatRadioModule
+    MatRadioModule,
+    CountUpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
