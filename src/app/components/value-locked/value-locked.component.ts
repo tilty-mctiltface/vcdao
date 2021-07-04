@@ -19,7 +19,7 @@ export class ValueLockedComponent implements OnInit {
   }
 
   private getTotalValueLocked(): Observable<number> {
-    return interval(2000);
+    return interval(1500);
   }
 
 }

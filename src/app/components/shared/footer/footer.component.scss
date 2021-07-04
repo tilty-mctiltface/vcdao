@@ -1,3 +1,6 @@
+@import 'src/app/styles/globals';
+
+
 .footer {
   height: 350px;
   width: 100%;
@@ -12,5 +15,36 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+
+    p {
+      transition-duration: .15s;
+      cursor: pointer;
+      &:hover {
+        color: $accent;
+      }
+    }
+    .social-links {
+      button {
+        cursor: pointer;
+        display: block;
+        background: none;
+        outline: none;
+        border: none;
+        color: #dbdbdb;
+        padding: 5px;
+        margin: 10px;
+        text-align: center;
+        transition-duration: .15s;
+
+        &:hover {
+          color: $accent;
+        }
+
+        img {
+          margin-right: 20px;
+          width: 32px;
+        }
+      }
+    }
   }
 }
