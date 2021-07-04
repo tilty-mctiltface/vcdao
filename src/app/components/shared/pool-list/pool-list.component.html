@@ -9,13 +9,13 @@
     <th>APY</th>
     <th>Daily APR</th>
   </tr>
-  <tr class="rows" *ngFor="let pool of pools">
-    <td class="icon-cell"><img [src]="'/assets/' + pool.icon"/></td>
+  <tr class="rows" *ngFor="let pool of testPools">
+    <td class="icon-cell"><img [src]="pool.icon"/></td>
     <td>{{pool.title}}</td>
     <td>$ {{pool.value | number: '1.0-2'}}</td>
     <td>$ {{pool.tvl | number: '1.0-2'}}</td>
     <td>$ {{pool.mcap | number: '1.0-2'}}</td>
-    <td>{{pool.past24h | number: '1.0-2'}}%</td>
+    <td [ngClass]="pool.past24h > 0 ? 'positive' : 'negative'">{{pool.past24h | number: '1.0-2'}}%</td>
     <td>{{pool.predicted_apr?.yearly | number: '1.0-2'}}%</td>
     <td>{{pool.predicted_apr?.daily | number: '1.0-2'}}%</td>
   </tr>

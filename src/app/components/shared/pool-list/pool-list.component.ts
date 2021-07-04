@@ -13,12 +13,31 @@ import {CoingeckoService} from "../../../services/coingecko/coingecko.service";
 export class PoolListComponent implements OnInit {
 
   @Input() pools: Pool[] = [];
-  private tokens = ['bitcoin', 'weth', 'wbnb']
+  testPools: Pool[] = []
+  private tokens = ['bitcoin', 'ethereum', 'truefi', 'binancecoin', 'cardano', 'tezos']
 
   constructor(private coinGecko: CoingeckoService) { }
 
   ngOnInit(): void {
-    // this.coinGecko.getTokenById()
+    this.coinGecko.getTokensById(this.tokens).subscribe(
+      (val) => {
+        val.forEach(token => {
+          this.testPools.push({
+            icon: token.image,
+            title: token.name,
+            value: token.current_price,
+            tvl: 9324387,
+            past24h: token.price_change_percentage_24h,
+            mcap: token.market_cap,
+            predicted_apr: {
+              daily: 5,
+              monthly: 10,
+              yearly: 20
+            }
+          })
+        })
+      }
+    )
   }
 
 }
