@@ -11,9 +11,9 @@ export class CoingeckoService {
   constructor(private httpClient: HttpClient) { }
 
   // TODO sparkline true?
-  public getTokenById(id: string): Observable<Token> {
-    return this.httpClient.get<Token>(
-      `${this.GECKO_API}coins/${id}?localization=false&sparkline=false`
+  public getTokensById(id: string[] | string): Observable<Token[]> {
+    return this.httpClient.get<Token[]>(
+      `${this.GECKO_API}coins/markets?vs_currency=usd&ids=${id}&order=market_cap_desc&per_page=1&page=1&sparkline=false`
     )
   }
 }

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {data} from "./mock-data";
 import * as shape from 'd3-shape';
+import {interval, Observable} from "rxjs";
+import {CoingeckoService} from "../../../services/coingecko/coingecko.service";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'investment-chart',
@@ -10,9 +13,8 @@ import * as shape from 'd3-shape';
 export class InvestmentChartComponent implements OnInit {
   chartData: any[] = []
   view: [number, number] = [700, 300];
-
   // options
-  curve = shape.curveCatmullRom
+  curve = shape.curveNatural
   legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
@@ -33,10 +35,27 @@ export class InvestmentChartComponent implements OnInit {
     return new Date(val).toLocaleDateString('en-US')
   }
 
-  constructor() { }
+  constructor(private coinGecko: CoingeckoService, private changeDetector: ChangeDetectorRef) {
+  }
 
   ngOnInit(): void {
     this.chartData = data
+    this.getInterval().subscribe(
+      () => {
+        this.chartData[0].series = [
+          ... this.chartData[0].series,
+          ...[{
+            value: Math.random() * (45000 - 30000 + 1) + 30000,
+            name: Math.floor(new Date().getTime())
+          }]
+        ]
+        this.chartData = [... this.chartData]
+      }
+    )
+  }
+
+  getInterval(): Observable<number> {
+    return interval(3000)
   }
 
 }
