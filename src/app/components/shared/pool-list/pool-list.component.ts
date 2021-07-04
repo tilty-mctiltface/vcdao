@@ -14,7 +14,7 @@ export class PoolListComponent implements OnInit {
 
   @Input() pools: Pool[] = [];
   testPools: Pool[] = []
-  private tokens = ['bitcoin', 'ethereum', 'truefi', 'binancecoin', 'cardano', 'tezos']
+  private tokens = ['bitcoin', 'dogecoin', 'ethereum', 'truefi', 'tether', 'safermoon', 'binancecoin', 'cardano', 'tezos']
 
   constructor(private coinGecko: CoingeckoService) { }
 
