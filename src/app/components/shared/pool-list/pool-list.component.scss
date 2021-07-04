@@ -4,7 +4,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     background: $component-bg;
-    font-size: 20px;
+    font-size: 16px;
     line-height: normal;
     border-left-color: $accent;
 }
@@ -35,6 +35,6 @@ table, tr {
 }
 
 img {
-    height: 64px;
-    width: 64px;
+    height: 32px;
+    width: 32px;
 }

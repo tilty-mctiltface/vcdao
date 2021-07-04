@@ -25,7 +25,7 @@ export class InvestmentChartComponent implements OnInit {
   timeline: boolean = true;
 
   colorScheme = {
-    domain: ['#00FFF6']
+    domain: ['#6CC86B']
   }
 
   formatUnix(val: number) {
