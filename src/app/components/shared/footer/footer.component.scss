@@ -1,7 +1,7 @@
 @import "src/app/styles/globals";
 
 .footer {
-  height: 350px;
+  height: 150px;
   width: 100%;
   background: #2d5660;
   color: #dbdbdb;
@@ -24,7 +24,7 @@
     }
     .social-links {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: flex-start;
 
       button {
@@ -45,7 +45,8 @@
         }
 
         img {
-          margin-right: 20px;
+          margin-right: 10px;
+          margin-left: 20px;
           width: 32px;
         }
       }
