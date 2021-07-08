@@ -14,7 +14,7 @@ export class PoolListComponent implements OnInit {
 
   @Input() pools: Pool[] = [];
   testPools: Pool[] = []
-  private tokens = ['bitcoin', 'dogecoin', 'ethereum', 'truefi', 'tether', 'safermoon', 'binancecoin', 'cardano', 'tezos']
+  private tokens = ['eos', 'velas', 'tezos', 'eleven-finance','terra-luna', 'tbcc-wallet']
 
   constructor(private coinGecko: CoingeckoService) { }
 
@@ -26,7 +26,7 @@ export class PoolListComponent implements OnInit {
             icon: token.image,
             title: token.name,
             value: token.current_price,
-            tvl: 9324387,
+            tvl: Math.random() * 100000,
             past24h: token.price_change_percentage_24h,
             mcap: token.market_cap,
             predicted_apr: {
