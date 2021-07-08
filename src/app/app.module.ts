@@ -37,6 +37,7 @@ import { ValueLockedComponent } from './components/value-locked/value-locked.com
 import { CoinRatioComponent } from './components/coin-ratio/coin-ratio.component';
 import { PodDataWrapperComponent } from './components/pod-data-wrapper/pod-data-wrapper.component';
 import {CountUpModule} from "ngx-countup";
+import { RunningTickerComponent } from './components/running-ticker/running-ticker.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import {CountUpModule} from "ngx-countup";
     CoinRatioComponent,
     HealthClassPipe,
     PodDataWrapperComponent,
+    RunningTickerComponent,
   ],
   imports: [
     BrowserModule,

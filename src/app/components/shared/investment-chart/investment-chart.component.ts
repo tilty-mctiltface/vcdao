@@ -49,8 +49,12 @@ export class InvestmentChartComponent implements OnInit {
             name: Math.floor(new Date().getTime())
           }]
         ]
+        if (this.chartData[0].series.length > 100) {
+          console.log(this.chartData[0].series.length)
+          this.chartData[0].series.shift()
+          console.log(this.chartData[0].series.length)
+        }
         this.chartData = [... this.chartData]
-        console.log(JSON.stringify(this.chartData[0].series))
       }
     )
   }
