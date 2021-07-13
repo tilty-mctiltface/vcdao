@@ -20,6 +20,7 @@ export class WebPlatformComponent implements OnInit {
         this.account = r
         this.walletService.detectEthereumNetwork()
       })
+      this.walletService.connectToContract()
     })
   }
 

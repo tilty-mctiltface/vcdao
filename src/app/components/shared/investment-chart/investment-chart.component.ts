@@ -52,7 +52,6 @@ export class InvestmentChartComponent implements OnInit {
         if (this.chartData[0].series.length > 100) {
           console.log(this.chartData[0].series.length)
           this.chartData[0].series.shift()
-          console.log(this.chartData[0].series.length)
         }
         this.chartData = [... this.chartData]
       }
@@ -60,7 +59,7 @@ export class InvestmentChartComponent implements OnInit {
   }
 
   getInterval(): Observable<number> {
-    return interval(3000)
+    return interval(5000)
   }
 
 }

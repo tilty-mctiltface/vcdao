@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import Web3 from "web3";
-import { vcs } from './abis/VCSToken'
+import {vcsAbi, vcsAddress} from './abis/VCSToken'
 
 declare let window: any;
 
@@ -9,7 +9,9 @@ declare let window: any;
 })
 export class WalletService {
   web3: any
-  vcsToken: any
+  vcsTokenContract: any
+  contractBalance: number = 0
+
 
   async walletConnect() {
     if (window.ethereum) {
@@ -21,14 +23,13 @@ export class WalletService {
     } else {
       window.alert('Non-Ethereum browser detected. You Should consider using MetaMask!');
     }
-    // Load VCSToken
-      const VCSToken = new window.web3.eth.Contract(vcs, '0xE8D63599bE079022ac4d5CdE3A48aED0F5AD491E')
-      this.vcsToken = VCSToken 
-      let vcsTokenBalance = await this.vcsToken.methods.balanceOf('0xE8D63599bE079022ac4d5CdE3A48aED0F5AD491E').call()
-      this.vcsToken({ vcsTokenBalance: vcsTokenBalance.toString() })
-      console.log( this.vcsToken.vcsTokenBalance )
-    
-    
+  }
+
+  async connectToContract() {
+    this.vcsTokenContract = new window.web3.eth.Contract(vcsAbi, vcsAddress)
+    let vcsTokenBalance = await this.vcsTokenContract.methods.balanceOf('0x4f03319991c2624E3afe160d72d288ddC6cF84eF').call()
+    this.contractBalance = vcsTokenBalance
+    console.log(vcsTokenBalance)
   }
 
   detectEthereumNetwork() {

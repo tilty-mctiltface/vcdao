@@ -1,4 +1,5 @@
-export const vcs = [
+export const vcsAddress = '0xE8D63599bE079022ac4d5CdE3A48aED0F5AD491E'
+export const vcsAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
