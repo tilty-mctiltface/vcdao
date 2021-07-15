@@ -3,20 +3,20 @@
     <th></th>
     <th>Token</th>
     <th>Value</th>
-    <th>TVL</th>
-    <th>Market Cap</th>
+    <th>Price purchased</th>
+    <th>Amount held</th>
+    <th>Total spent</th>
     <th>Past 24h</th>
-    <th>APY</th>
-    <th>Daily APR</th>
+    <th>Total % since buy</th>
   </tr>
   <tr class="rows" *ngFor="let pool of testPools">
     <td class="icon-cell"><img [src]="pool.icon"/></td>
     <td>{{pool.title}}</td>
     <td>$ {{pool.value | number: '1.0-2'}}</td>
-    <td>$ {{pool.tvl | number: '1.0-2'}}</td>
-    <td>$ {{pool.mcap | number: '1.0-2'}}</td>
+    <td>$ {{pool.value - (pool.value / 2) | number: '1.0-2'}}</td>
+    <td>{{879679.234}} {{pool.title}}</td>
+    <td>$ {{24356.23}}</td>
     <td [ngClass]="pool.past24h > 0 ? 'positive' : 'negative'">{{pool.past24h | number: '1.0-2'}}%</td>
-    <td>{{pool.predicted_apr?.yearly | number: '1.0-2'}}%</td>
     <td>{{pool.predicted_apr?.daily | number: '1.0-2'}}%</td>
   </tr>
 </table>
