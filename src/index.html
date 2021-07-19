@@ -11,6 +11,335 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="mat-typography">
-  <app-root></app-root>
+<app-root></app-root>
+<div id="threejs-render" style="visibility: hidden">
+  <script id="vertexShaderGradient" type="x-shader/x-vertex">
+varying vec2 vUv;
+varying float normalY;
+void main()	{
+#include <begin_vertex>
+vUv = uv;
+normalY = normal.y;
+gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+}
+</script>
+  <script id="fragmentShaderGradient" type="x-shader/x-fragment">
+uniform vec3 botGradient;
+uniform vec3 topGradient;
+varying vec2 vUv;
+varying float normalY;
+void main() {
+gl_FragColor = vec4(mix(botGradient, topGradient, vUv.y), normalY != 0.0 ? 0.0 : 1.0);
+}
+</script>
+  <script id="vertexShaderGlow" type="x-shader/x-vertex">
+varying vec2 vUv;
+varying float normalY;
+void main()	{
+vUv = uv;
+normalY = normal.y;
+gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+}
+</script>
+  <script id="fragmentShaderGlow" type="x-shader/x-fragment">
+uniform vec3 color;
+varying vec2 vUv;
+varying float normalY;
+float opacity;
+void main() {
+opacity = vUv.y;
+gl_FragColor = vec4(color, (normalY != 0.0) ? 0.0 : opacity*opacity);
+}
+</script>
+  <script id="vertexShaderPoints" type="x-shader/x-vertex">
+uniform vec3 objInPos;
+uniform float size;
+varying float opacity;
+float distance;
+void main()	{
+distance = (position.x * position.x * 0.5) + (objInPos.y - position.y) * (objInPos.y - position.y) + (objInPos.z - position.z) * (objInPos.z - position.z);
+opacity = (1.0 - distance * 0.1) * fract(distance) * (9.428 - objInPos.y) * 0.1 * (objInPos.y - 1.078);
+gl_PointSize = size;
+gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+}
+</script>
+  <script id="fragmentShaderPoints" type="x-shader/x-fragment">
+uniform vec3 color;
+varying float opacity;
+void main() {
+gl_FragColor = vec4(color, opacity);
+}
+</script>
+  <script type="module" src="./assets/render/OBJLoader.js"></script>
+  <script type="module">
+    import {OBJLoader} from "./assets/render/OBJLoader.js";
+    import * as THREE from './assets/render/three.module.js';
+    var scene, camera, renderer, clock, delta, innerCube, backgroundCube, bgCubeMixer, points, spine, objLoader,
+      goalMatrices, originalMatrices, matricieTransforms, instanceMesh, instanceMeshMixer, transitionFactor,
+      rotationFactor, rotationMatrixPI;
+    const maxIndex = 21888;
+    function init() {
+      goalMatrices = [], originalMatrices = [], matricieTransforms = [];
+      clock = new THREE.Clock();
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 100);
+      camera.position.x = -0.091;
+      camera.position.y = 5.5;
+      camera.position.z = 10;
+      renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      let rendererSet = false;
+      setInterval(() => {
+        if (document.getElementById('landing-hero')) {
+          if (!rendererSet) {
+            document.getElementById('landing-hero').appendChild(renderer.domElement);
+            rendererSet = true;
+          } else {
+            rendererSet = false;
+          }
+        }
+      });
+      var light = new THREE.HemisphereLight(0x26c756, 0x116143, 1);
+      light.position.set(-1.5, 8, 2);
+      scene.add(light);
+      objLoader = new OBJLoader();
+      rotationMatrixPI = getRotationMatrix(Math.PI);
+      createInstanceObjects();
+      loadSpine();
+      createBackgroundCube();
+      createInnerCube();
+      createPoints();
+      window.addEventListener('resize', onWindowResize);
+    }
+    function lerpMatrices(M1, M2, value) {
+      var outMatrix = new THREE.Matrix4();
+      for (let i = 0; i < 16; i += 4) {
+        outMatrix.elements[i] = THREE.MathUtils.lerp(M1.elements[i], M2.elements[i], value);
+        outMatrix.elements[i + 1] = THREE.MathUtils.lerp(M1.elements[i + 1], M2.elements[i + 1], value);
+        outMatrix.elements[i + 2] = THREE.MathUtils.lerp(M1.elements[i + 2], M2.elements[i + 2], value);
+      }
+      outMatrix.elements[3] = M1.elements[3];
+      outMatrix.elements[7] = M1.elements[7];
+      outMatrix.elements[11] = M1.elements[11];
+      outMatrix.elements[15] = 1;
+      return outMatrix;
+    }
+    function getRotationMatrix(theta) {
+      var sinTheta = Math.sin(theta);
+      var sinDiv2 = Math.sin(theta / 2);
+      var sinSqr2 = 2 * sinDiv2 * sinDiv2;
+
+      var rotationMatrix = new THREE.Matrix4();
+
+      rotationMatrix.set(
+        1 - sinSqr2, 0, sinTheta, 0,
+        0, 1, 0, 0,
+        -sinTheta, 0, 1 - sinSqr2, 0,
+        0, 0, 0, 1
+      );
+      return rotationMatrix;
+    }
+    function createPoints() {
+      var vertices = [];
+
+      for (let i = 0; i < 280; i++) {
+        var x = Math.floor(i / 40) - 3;
+        var y = (i % 40) * 0.35 - 1.5;
+        var z = -1;
+
+        vertices.push(x, y, z);
+      }
+
+      var geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+      var material = new THREE.ShaderMaterial({
+        uniforms: {
+          color: {
+            value: new THREE.Color(0x8EFFBC) //bright green
+          },
+          size: {
+            value: 8
+          },
+          objInPos: {
+            value: backgroundCube.position //point opacity based on distance from the pulse cube
+          }
+        },
+        vertexShader: document.getElementById('vertexShaderPoints').textContent,
+        fragmentShader: document.getElementById('fragmentShaderPoints').textContent,
+        transparent: true
+      });
+      points = new THREE.Points(geometry, material);
+      scene.add(points);
+    }
+    function createBackgroundCube() {
+      var geometry = new THREE.BoxGeometry(0.7, 1, 1.2);
+      for (let i = 0; i < geometry.attributes.position.count; i++) {
+        geometry.attributes.position.array[i * 3 + 1] -= 0.5;
+      }
+      var material = new THREE.ShaderMaterial({
+        uniforms: {
+          color: {
+            value: new THREE.Color(0x6fe871) //bright green
+          }
+        },
+        vertexShader: document.getElementById('vertexShaderGlow').textContent,
+        fragmentShader: document.getElementById('fragmentShaderGlow').textContent,
+        transparent: true,
+        side: THREE.DoubleSide
+      });
+      backgroundCube = new THREE.Mesh(geometry, material);
+
+      var scaleTrack = new THREE.VectorKeyframeTrack('.scale', [2, 5, 8], [1, 0, 1, 1, 8.35, 1, 1, 0, 1]);
+      var positionTrack = new THREE.VectorKeyframeTrack('.position', [2, 5], [-0.091, 1.078, 0, -0.091, 9.428, 0]);
+
+      var clip = new THREE.AnimationClip('action', 8, [scaleTrack, positionTrack]);
+      backgroundCube.animations.push(clip);
+      bgCubeMixer = new THREE.AnimationMixer(backgroundCube);
+      var clipAction = bgCubeMixer.clipAction(clip);
+      clipAction.play();
+      scene.add(backgroundCube);
+    }
+    function createInnerCube() {
+      var geometry = new THREE.BoxGeometry(0.7, 1, 1);
+//subtract 0.5 from each verticie so that the object pivot is at the top of the cube
+      for (let i = 0; i < geometry.attributes.position.count; i++) {
+        geometry.attributes.position.array[i * 3 + 1] -= 0.5;
+      }
+      var material = new THREE.ShaderMaterial({
+        uniforms: {
+          botGradient: {
+            value: new THREE.Color(0x00783c) //dark green
+          },
+          topGradient: {
+            value: new THREE.Color(0x6fe871) //light green
+          }
+        },
+        vertexShader: document.getElementById('vertexShaderGradient').textContent,
+        fragmentShader: document.getElementById('fragmentShaderGradient').textContent,
+        transparent: true
+      });
+
+      innerCube = new THREE.Mesh(geometry, material);
+      innerCube.position.set(-0.091, 9.428, 0);
+      innerCube.scale.y = 8.35;
+      scene.add(innerCube);
+    }
+    function loadSpine() {
+      var material = new THREE.MeshBasicMaterial({
+        color: 0x6fe871,
+      });
+      objLoader.load("./assets/render/objects/Spine_Square_Hollow.obj", function (obj) {
+        obj.name = "./assets/render/objects/Spine_Square_Hollow.obj";
+        obj.children[0].material.dispose();
+        obj.children[0].material = material;
+        spine = obj;
+        scene.add(spine);
+      });
+    }
+    function createInstanceObjects() {
+      var material = new THREE.MeshStandardMaterial({
+        color: 0x67c268, //light-ish green
+      });
+
+      var convertedIndices = 0;
+      var geometry = new THREE.BoxGeometry(1, 1, 1);
+      instanceMesh = new THREE.InstancedMesh(geometry, material, 1368);
+
+      fetch('./assets/render/objectMatrices03.txt')
+        .then(response => response.text())
+        .then(text => {
+          convertArray(text, function () {
+            ++convertedIndices;
+            if (convertedIndices === maxIndex) {
+              rotateObjects180();
+              keyframeSetupV2();
+            }
+          });
+        })
+    }
+    function convertArray(text, onConvert) {
+      var temp = text.split("\r\n");
+      for (let i = 0; i < temp.length; i++) {
+        matricieTransforms[i] = parseFloat(temp[i]);
+        onConvert();
+      }
+      instanceMesh.instanceMatrix = new THREE.Float32BufferAttribute(matricieTransforms, 16);
+      scene.add(instanceMesh);
+    }
+    function rotateObjects180() {
+      var w;
+      for (let i = 0; i < instanceMesh.count; i++) {
+        w = i * 16;
+        var tempMatrix = new THREE.Matrix4();
+        tempMatrix.set(
+          matricieTransforms[w], matricieTransforms[w + 4], matricieTransforms[w + 8], matricieTransforms[w + 12],
+          matricieTransforms[w + 1], matricieTransforms[w + 5], matricieTransforms[w + 9], matricieTransforms[w + 13],
+          matricieTransforms[w + 2], matricieTransforms[w + 6], matricieTransforms[w + 10], matricieTransforms[w + 14],
+          matricieTransforms[w + 3], matricieTransforms[w + 7], matricieTransforms[w + 11], matricieTransforms[w + 15]
+        );
+        originalMatrices[i] = tempMatrix;
+        goalMatrices[1367 - i] = tempMatrix.multiplyMatrices(rotationMatrixPI, tempMatrix);
+      }
+    }
+    function keyframeSetupV2() {
+      instanceMesh.transitionValues = [];
+      var transitionTracks = [];
+
+      for (let i = 0, j = 0, counter = 0; i < instanceMesh.count; i++) {
+        instanceMesh.transitionValues[i] = 0.0;
+        if (i < 684) {
+          j = i % 171 * 0.008 + Math.random() * 0.5;
+        } else {
+          j = ((1367 - i) % 171) * 0.008 + Math.random() * 0.5;
+        }
+        transitionTracks[i] = new THREE.NumberKeyframeTrack('.transitionValues[' + i + ']', [0 + j, 2 + j], [0, 1], THREE.InterpolateSmooth);
+        ++counter;
+        if (counter === instanceMesh.count) {
+          var clip = new THREE.AnimationClip('action', 8, transitionTracks);
+          instanceMesh.animations.push(clip);
+          instanceMeshMixer = new THREE.AnimationMixer(instanceMesh);
+          var clipAction = instanceMeshMixer.clipAction(clip);
+          clipAction.play();
+        }
+      }
+      animate();
+    }
+    function animate() {
+      requestAnimationFrame(animate);
+      render();
+    }
+    function render() {
+      delta = clock.getDelta();
+      for (let i = 0; i < instanceMesh.count; i++) {
+        transitionFactor = instanceMesh.transitionValues[i];
+        rotationFactor = (1 - instanceMesh.transitionValues[i]) * -Math.PI;
+        var tempMatrix = new THREE.Matrix4();
+        var tempMatrixGoal = new THREE.Matrix4();
+        var tempMatrixOrig = new THREE.Matrix4();
+        var rotationMatrix = getRotationMatrix(rotationFactor);
+        instanceMesh.getMatrixAt(i, tempMatrix);
+        tempMatrixGoal.multiplyMatrices(rotationMatrix, goalMatrices[i]);
+        tempMatrixOrig.multiplyMatrices(rotationMatrix, originalMatrices[i]);
+        tempMatrix = lerpMatrices(tempMatrixOrig, tempMatrixGoal.multiplyMatrices(rotationMatrixPI, tempMatrixGoal), transitionFactor);
+        instanceMesh.setMatrixAt(i, tempMatrix);
+      }
+      instanceMesh.instanceMatrix.needsUpdate = true;
+
+      instanceMeshMixer.update(delta);
+      bgCubeMixer.update(delta);
+
+      renderer.render(scene, camera);
+    }
+
+    function onWindowResize() {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    init();
+  </script>
+</div>
 </body>
 </html>

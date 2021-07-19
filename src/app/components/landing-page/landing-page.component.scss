@@ -42,10 +42,10 @@
 }
 .body {
   background-color: #f6f6f6;
-  .hero {
+  #landing-hero {
     width: 100%;
     height: calc(100vh - 80px);
-    background: url("/assets/BG_04.jpg") no-repeat center;
+    background: url('/assets/BG_04.jpg') no-repeat center;
     background-size: cover;
   }
   .info-header {
