@@ -38,6 +38,7 @@ import { CoinRatioComponent } from './components/coin-ratio/coin-ratio.component
 import { PodDataWrapperComponent } from './components/pod-data-wrapper/pod-data-wrapper.component';
 import {CountUpModule} from "ngx-countup";
 import { RunningTickerComponent } from './components/running-ticker/running-ticker.component';
+import { NftcardComponent } from './components/shared/nftcard/nftcard.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { RunningTickerComponent } from './components/running-ticker/running-tick
     HealthClassPipe,
     PodDataWrapperComponent,
     RunningTickerComponent,
+    NftcardComponent,
   ],
   imports: [
     BrowserModule,

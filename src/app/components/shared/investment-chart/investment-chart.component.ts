@@ -12,7 +12,6 @@ import {map} from "rxjs/operators";
 })
 export class InvestmentChartComponent implements OnInit {
   chartData: any[] = []
-  view: [number, number] = [700, 300];
   // options
   curve = shape.curveNatural
   legend: boolean = false;
