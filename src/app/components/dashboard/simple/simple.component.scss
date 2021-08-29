@@ -43,7 +43,8 @@ pool-list-wrapper {
     margin-top: 24px;
 }
 nftcard {
-  grid-column: span 1;
-  grid-row: span 1;
+  margin-top: 32px;
+  grid-column: 1 / 4;
+  grid-row: 4;
   align-self: flex-end;
 }

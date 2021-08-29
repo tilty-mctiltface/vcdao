@@ -1,5 +1,7 @@
 <div class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
   <div class="ticker-item" *ngFor="let token of tokens">
-    <span>{{token.name}}: </span><span [ngClass]="token.price_change_percentage_24h > 0 ? 'positive' : 'negative'"> {{token.price_change_percentage_24h | number: '1.0-2'}}%</span>
+    <div>
+      <img [src]="token.image" alt="icon"/> <span>{{token.name}}: </span><span [ngClass]="token.price_change_percentage_24h > 0 ? 'positive' : 'negative'"> {{token.price_change_percentage_24h | number: '1.0-2'}}%</span>
+    </div>
   </div>
 </div></div></div>

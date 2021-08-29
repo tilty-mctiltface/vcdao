@@ -1,5 +1,6 @@
 @import 'src/app/styles/globals';
-$duration: 8s;
+
+$duration: 12s;
 /* OUTER CONTAINER */
 .tcontainer {
   width: 100%;
@@ -19,9 +20,14 @@ $duration: 8s;
 
 /* INNER CONTAINER */
 @keyframes ticker {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-100%, 0, 0); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
 }
+
 .ticker-move {
   /* Basically move items from right side of screen to left in infinite loop */
   display: inline-block;
@@ -32,12 +38,28 @@ $duration: 8s;
   animation-name: ticker;
   animation-duration: $duration;
 }
-.ticker-move:hover{
+
+.ticker-move:hover {
   animation-play-state: paused; /* Pause scroll on mouse hover */
 }
 
 /* ITEMS */
-.ticker-item{
+.ticker-item {
   display: inline-block; /* Lay items in a horizontal line */
   padding: 0 12rem;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 5px;
+    }
+
+    img {
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+
 }

@@ -4,16 +4,21 @@ import {LandingPageComponent} from "./components/landing-page/landing-page.compo
 import {WebPlatformComponent} from "./components/web-platform/web-platform.component";
 import {RewardsComponent} from "./components/rewards/rewards.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {PreLaunchLandingComponent} from "./components/pre-launch-landing/pre-launch-landing.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingPageComponent
+    component: PreLaunchLandingComponent
   },
   {
     path: 'app',
     component: WebPlatformComponent,
     children: [
+      {
+        path: '',
+        component: LandingPageComponent
+      },
       {
         path: 'rewards',
         component: RewardsComponent

@@ -40,6 +40,8 @@ import {CountUpModule} from "ngx-countup";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { RunningTickerComponent } from './components/running-ticker/running-ticker.component';
 import { NftcardComponent } from './components/shared/nftcard/nftcard.component';
+import { PreLaunchLandingComponent } from './components/pre-launch-landing/pre-launch-landing.component';
+import { ClockComponent } from './components/shared/clock/clock.component';
 
 
 @NgModule({
@@ -68,6 +70,8 @@ import { NftcardComponent } from './components/shared/nftcard/nftcard.component'
     PodDataWrapperComponent,
     RunningTickerComponent,
     NftcardComponent,
+    PreLaunchLandingComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,

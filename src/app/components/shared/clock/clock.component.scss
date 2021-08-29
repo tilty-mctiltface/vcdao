@@ -1,0 +1,150 @@
+@import 'src/app/styles/globals';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+:host > span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12pt;
+}
+
+:host > section {
+  width: 650px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+  background: none;
+  padding: 2px;
+}
+
+section > div {
+  display: grid;
+  grid-template-rows: repeat(5, 16px);
+  grid-template-columns: repeat(3, 24px);
+  gap: 2px;
+}
+
+section > div:nth-child(3),
+section > div:nth-child(5),
+section > div:nth-child(7) {
+  margin-left: 16px;
+  position: relative;
+}
+
+section > div:nth-child(3)::before,
+section > div:nth-child(3)::after,
+section > div:nth-child(5)::before,
+section > div:nth-child(5)::after,
+section > div:nth-child(7)::before {
+  position: absolute;
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: $accent;
+  left: -30px;
+}
+
+section > div:nth-child(3)::before,
+section > div:nth-child(5)::before {
+  top: calc(50% - 26px);
+}
+
+section > div:nth-child(3)::after,
+section > div:nth-child(5)::after {
+  top: calc(50% + 10px);
+}
+
+section > div:nth-child(7)::before {
+  bottom: 0px;
+}
+
+div > div {
+  background-color: $accent;
+  opacity: 0;
+  transition: opacity 0.125s linear;
+}
+
+.d0 > div:nth-child(3n),
+.d0 > div:nth-child(3n-2),
+.d0 > div:nth-child(2),
+.d0 > div:nth-child(14) {
+  opacity: 1;
+}
+
+.d1 > div:nth-child(3n) {
+  opacity: 1;
+}
+
+.d2 > div:nth-child(3n):not(:nth-child(12)),
+.d2 > div:nth-child(1),
+.d2 > div:nth-child(2),
+.d2 > div:nth-child(7),
+.d2 > div:nth-child(8),
+.d2 > div:nth-child(10),
+.d2 > div:nth-child(13),
+.d2 > div:nth-child(14) {
+  opacity: 1;
+}
+
+.d3 > div:nth-child(3n),
+.d3 > div:nth-child(1),
+.d3 > div:nth-child(2),
+.d3 > div:nth-child(7),
+.d3 > div:nth-child(8),
+.d3 > div:nth-child(13),
+.d3 > div:nth-child(14) {
+  opacity: 1;
+}
+
+.d4 > div:nth-child(3n),
+.d4 > div:nth-child(1),
+.d4 > div:nth-child(4),
+.d4 > div:nth-child(7),
+.d4 > div:nth-child(8) {
+  opacity: 1;
+}
+
+.d5 > div:nth-child(3n):not(:nth-child(6)),
+.d5 > div:nth-child(3n-2):not(:nth-child(10)),
+.d5 > div:nth-child(2),
+.d5 > div:nth-child(8),
+.d5 > div:nth-child(14) {
+  opacity: 1;
+}
+
+.d6 > div:nth-child(3n-2),
+.d6 > div:nth-child(3n):not(:nth-child(6)),
+.d6 > div:nth-child(2),
+.d6 > div:nth-child(8),
+.d6 > div:nth-child(14) {
+  opacity: 1;
+}
+
+.d7 > div:nth-child(3n),
+.d7 > div:nth-child(1),
+.d7 > div:nth-child(2) {
+  opacity: 1;
+}
+
+.d8 > div:nth-child(3n-2),
+.d8 > div:nth-child(3n),
+.d8 > div:nth-child(2),
+.d8 > div:nth-child(8),
+.d8 > div:nth-child(14) {
+  opacity: 1;
+}
+
+.d9 > div:nth-child(3n),
+.d9 > div:nth-child(1),
+.d9 > div:nth-child(2),
+.d9 > div:nth-child(4),
+.d9 > div:nth-child(7),
+.d9 > div:nth-child(8) {
+  opacity: 1;
+}

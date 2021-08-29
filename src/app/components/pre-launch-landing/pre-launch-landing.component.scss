@@ -1,0 +1,131 @@
+@import 'src/app/styles/globals';
+
+.container {
+  //background: url('/assets/Background_V3_01_Dark_Center.jpg') no-repeat center;
+  //background-size: cover;
+  //overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  section {
+    margin: 25px 0;
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    #ugly-hack {
+      width: 140px;
+    }
+
+    .app-link {
+      cursor: not-allowed;
+      margin-right: 40px;
+      padding: 10px 40px !important;
+      background: none;
+      border: 1px solid $accent;
+      border-radius: 25px;
+      color: #f8f8f8;
+
+      &:hover {
+        filter: blur(2px);
+      }
+    }
+  }
+
+  .logo {
+
+    video {
+      height: 500px;
+      width: 100%;
+      object-fit: scale-down;
+      animation: logo-fade-in 3s ease-out;
+    }
+  }
+
+  .explanation {
+    width: 500px;
+    h1 {
+      text-align: center;
+    }
+    .info {
+      overflow: hidden;
+      height: 0;
+    }
+    .shown {
+      height: 250px;
+      animation: grow .25s ease-out;
+    }
+    //.hidden {
+    //  height: 0;
+    //  animation: shrink 1s ease-in;
+    //}
+
+    @keyframes grow {
+      0% {
+        height: 0;
+      }
+      100% {
+        height: 250px;
+      }
+    }
+    @keyframes shrink {
+      0% {
+        height: 250px;
+      }
+      100% {
+        height: 0;
+      }
+    }
+  }
+
+  .socials {
+    .social-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        background: none;
+        outline: none;
+        border: none;
+        color: #dbdbdb;
+        padding: 5px;
+        margin: 8px 0;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+        transition-duration: 0.15s;
+
+        &:hover {
+          color: $accent;
+        }
+
+        img {
+          margin-right: 10px;
+          margin-left: 20px;
+          width: 64px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes logo-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}

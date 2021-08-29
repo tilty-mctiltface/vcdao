@@ -45,8 +45,20 @@
   #landing-hero {
     width: 100%;
     height: calc(100vh - 80px);
-    background: url('/assets/BG_04.jpg') no-repeat center;
+    background: url('/assets/Background_V3_01_Dark_Center.jpg') no-repeat center;
     background-size: cover;
+    overflow: hidden;
+  }
+  #landing-hero-video {
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-size: cover;
+    overflow: hidden;
+    video {
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+    }
   }
   .info-header {
     font-size: xxx-large;
