@@ -9,6 +9,7 @@ import {Observable, timer} from "rxjs";
 })
 export class PreLaunchLandingComponent implements OnInit {
   expanded = false
+  logos = ['eos.png', 'tezos.png', 'velas.png', 'luna.png']
 
   toggleInfo() {
     this.expanded = true

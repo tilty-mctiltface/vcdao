@@ -6,7 +6,6 @@
   //overflow: hidden;
   color: $font-color;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,17 +52,30 @@
   }
 
   .explanation {
-    width: 500px;
+    width: 50%;
     h1 {
       text-align: center;
-      font-size: 110px;
+      font-size: xx-large;
       font-weight: 900;
       letter-spacing: 10px;
       margin-bottom: 46px;
       animation: header_appear .5s ease-in-out;
     }
     .info {
-      overflow: hidden;
+      font-size: large;
+      line-height: 1.85;
+
+      .token-logos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        img {
+          height: 64px;
+          width: auto;
+        }
+      }
     }
     @keyframes header_appear {
       0% {
@@ -87,6 +99,17 @@
   }
 
   .socials {
+    margin: 140px 0 0 0 !important;
+    width: 100%;
+    background-color: $accent;
+    color: $component-bg;
+    .socials-desc {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .social-links {
       display: flex;
       flex-direction: row;
@@ -108,7 +131,7 @@
         transition-duration: 0.15s;
 
         &:hover {
-          color: $accent;
+          color: $component-bg;
         }
 
         img {
@@ -128,4 +151,24 @@
   100% {
     opacity: 100;
   }
+}
+
+.custom-shape-divider-top-1631463275 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1631463275 svg {
+  position: relative;
+  display: block;
+  width: calc(140% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1631463275 .shape-fill {
+  fill: $primary-bg;
 }
